@@ -1,0 +1,13 @@
+node_modules
+.vscode
+yarn.lock
+.env
+
+# YARN
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
