@@ -18,6 +18,10 @@ const client = new Client({
 
 client.config = config;
 
+client.once(Events.ClientReady, readyClient =>{
+	console.log('Logging at ....');
+});
+
 (async () => {
 	try {
 		mongoose.set('strictQuery', false);
