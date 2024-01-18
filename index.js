@@ -1,7 +1,6 @@
 require('dotenv').config()
 const { Client, IntentsBitField, Events } = require('discord.js');
 const mongoose = require('mongoose');
-const eventHandler = require('./src/handlers/eventHandler');
 const moment = require('moment');
 const config = require('./config.json');
 
@@ -18,17 +17,13 @@ const client = new Client({
 
 client.config = config;
 
-client.once(Events.ClientReady, readyClient =>{
-	console.log('Logging at ....');
-});
 
 (async () => {
 	try {
 		mongoose.set('strictQuery', false);
 		await mongoose.connect(process.env.MONGODB_URI);
 		console.log(`%c[${moment().format("DD-MM-YYYY HH:mm:ss")}] ~ [+] Connected to DB.`, "color: #2d8fb9");
-
-		eventHandler(client);
+		console.log(`%c[${moment().format("DD-MM-YYYY HH:mm:ss")}] ~ [+] Online.`, "color: #2d8fb9");
 
 		client.login(process.env.TOKEN);
 	} catch (error) {
