@@ -1,8 +1,10 @@
 require('dotenv').config()
-const { Client, IntentsBitField, Events } = require('discord.js');
+const { Client, IntentsBitField, Events, Collection } = require('discord.js');
 const mongoose = require('mongoose');
 const moment = require('moment');
 const config = require('./config.json');
+const fs = require("fs");
+const path = require('path');
 
 const client = new Client({
 	intents: [
@@ -16,6 +18,10 @@ const client = new Client({
 });
 
 client.config = config;
+
+//command handler
+
+client.commands = new Collection();
 
 
 (async () => {
