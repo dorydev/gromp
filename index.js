@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { Client, IntentsBitField, Events, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Events, Collection } = require('discord.js');
 const mongoose = require('mongoose');
 const moment = require('moment');
 const config = require('./config.json');
@@ -7,14 +7,7 @@ const fs = require("fs");
 const path = require('path');
 
 const client = new Client({
-	intents: [
-		IntentsBitField.Flags.Guilds,
-		IntentsBitField.Flags.GuildMembers,
-		IntentsBitField.Flags.GuildMessages,
-		IntentsBitField.Flags.GuildPresences,
-		IntentsBitField.Flags.MessageContent,
-		IntentsBitField.Flags.GuildMessageReactions
-	],
+	intents: [GatewayIntentBits.Guilds]
 });
 
 client.config = config;
