@@ -13,6 +13,7 @@
     "@types/node": "^20.10.0",
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
+    "gromp": "file:",
     "moment": "^2.29.4",
     "mongoose": "^8.0.1"
   },
